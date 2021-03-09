@@ -2,7 +2,11 @@
 
 
 Route::get('/', function () {
-    return View('welcome');
+    $tasks = ["Kuliah", "Kerja", "Freelance", "Pengajar"];
+    
+    return View('welcome', [
+        'tasks' => $tasks
+    ]);
 });
 
 Route::get('about', function () {

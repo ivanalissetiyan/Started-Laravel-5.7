@@ -3,7 +3,14 @@
 @section('content')
 
 <div class="container">
-    <h1>Home Pages</h1>
+    @php
+        $no = 1;
+    @endphp
+
+   @foreach ($tasks as $task)
+  {{ $no }} - {{ $task }} <br>
+    <?php $no++ ?>
+   @endforeach
 </div>
     
 @endsection
