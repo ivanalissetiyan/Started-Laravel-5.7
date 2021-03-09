@@ -2,7 +2,7 @@
 
 
 Route::get('/', function () {
-    return 'My Name Is Ivan';
+    return View('welcome');
 });
 
 Route::get('about', function () {
@@ -13,6 +13,8 @@ Route::get('contact', function () {
     return View('contact');
 });
 
-Route::get('posts', function () {
-    return View('posts.author.index');
+Route::get('other', function () {
+    return View('other');
 });
+
+
