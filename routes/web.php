@@ -2,5 +2,6 @@
 
 Route::get('/', 'homeController@index');
 
-Route::get('about', 'pageController@about');
-Route::get('contact', 'pageController@contact');
+Route::get('tasks', 'taskController@index');
+Route::post('tasks', 'taskController@store');
+Route::get('tasks/{task}', 'taskController@show'); 
