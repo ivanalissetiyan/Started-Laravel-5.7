@@ -3,7 +3,8 @@
 
 <div class="container">
     <h1>Nama Saya adalah Ivan Alissetiyan</h1>
-    <p>Sata adalah seorang programmer di PT Treedots Australia</p>
+    <p>Saya adalah seorang programmer, yang sehari-hari nya ngoding</p>
+    <p>Di PT Bright PLN Batam dan Universitas Ibnu Sina</p>
 
 </div>
     

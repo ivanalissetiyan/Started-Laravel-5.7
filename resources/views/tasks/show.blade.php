@@ -10,7 +10,12 @@
                   <div class="task-description mb-3">
                       {{ $task->description }}
                   </div> 
-                  <a href="/tasks">Back</a>
+
+                  <ul class="list-inline">
+                      <li class="list-inline-item"> <a href="/tasks">Back</a> </li>
+                      <li class="list-inline-item"> <a href="/tasks/{{ $task->id }}/edit">Edit</a> </li>
+                  </ul>
+
             </div>
         </div>
     </div>
