@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\taskRequest;
 use App\Task;
 use Illuminate\Http\Request;
 
@@ -14,16 +16,10 @@ class taskController extends Controller
       return view('tasks.index', compact('tasks'));
     }
 
-    public function store()
+    public function store(taskRequest $request)
     {
 
-     $task = request()->validate([
-       'title' => 'required|min:3',
-       'description' => 'required',
-     ]);
-
-
-     Task::create($task);
+     Task::create($request->all());
      return back()->with('success', 'Data Telah Berhasil Diinput');
      
 
@@ -40,19 +36,20 @@ class taskController extends Controller
         return view('tasks.edit', compact('task'));
     }
 
-    public function update(Task $task)
+    public function update(Task $task, taskRequest $request)
     {
 
-     $attributes = request()->validate([
-        'title' => 'required|min:3',
-        'description' => 'required',
-      ]);
-
-      $task->update($attributes);
+      $task->update($request->all());
 
       return redirect("/tasks/{$task->id}")->with('success', 'Data Telah Berhasil Update');
     
 
+    }
+
+    public function delete(Task $task)
+    {
+      $task->delete();
+      return redirect("/tasks")->with('success', "Data telah berhasil di hapus");
     }
 
 

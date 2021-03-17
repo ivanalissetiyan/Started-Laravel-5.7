@@ -13,7 +13,14 @@
 
                   <ul class="list-inline">
                       <li class="list-inline-item"> <a href="/tasks">Back</a> </li>
-                      <li class="list-inline-item"> <a href="/tasks/{{ $task->id }}/edit">Edit</a> </li>
+                      <li class="list-inline-item"> <a href="/tasks/{{ $task->id }}/edit">Edit</a></li>
+                      <li class="list-inline-item">
+                          <form action="/tasks/{{ $task->id }}/delete" method="post">
+                                @csrf
+                                @method("DELETE")
+                                <button class="btn btn-danger">Delete</button>
+                          </form>
+                      </li>
                   </ul>
 
             </div>
