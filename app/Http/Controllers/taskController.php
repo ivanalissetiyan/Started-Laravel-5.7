@@ -9,6 +9,7 @@ class taskController extends Controller
 {
     public function index()
     {
+      
       $tasks = Task::all();
       return view('tasks.index', compact('tasks'));
     }
@@ -16,14 +17,15 @@ class taskController extends Controller
     public function store()
     {
 
-     request()->validate([
+     $task = request()->validate([
        'title' => 'required|min:3',
        'description' => 'required',
      ]);
 
-     $task = request()->all();
+
      Task::create($task);
-     return back();
+     return back()->with('success', 'Data Telah Berhasil Diinput');
+     
 
     }
 
@@ -41,17 +43,14 @@ class taskController extends Controller
     public function update(Task $task)
     {
 
-      request()->validate([
+     $attributes = request()->validate([
         'title' => 'required|min:3',
         'description' => 'required',
       ]);
 
-      $task->update([
-          'title' => request('title'),
-          'description' => request('description'),
-      ]);
+      $task->update($attributes);
 
-      return redirect("/tasks/{$task->id}");
+      return redirect("/tasks/{$task->id}")->with('success', 'Data Telah Berhasil Update');
     
 
     }
