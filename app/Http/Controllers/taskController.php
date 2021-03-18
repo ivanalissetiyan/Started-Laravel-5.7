@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Requests\taskRequest;
 use App\Task;
+use App\subject1;
+use App\Http\Requests\taskRequest;
 use Illuminate\Http\Request;
 
 
@@ -13,7 +13,9 @@ class taskController extends Controller
     {
       
       $tasks = Task::all();
-      return view('tasks.index', compact('tasks'));
+      $subject1s = subject1::all();
+   
+      return view('tasks.index', compact('tasks', 'subject1s'));
     }
 
     public function store(taskRequest $request)
@@ -33,7 +35,8 @@ class taskController extends Controller
 
     public function edit(Task $task)
     {
-        return view('tasks.edit', compact('task'));
+        $subject1s = subject1::all();
+        return view('tasks.edit', compact('task', 'subject1s'));
     }
 
     public function update(Task $task, taskRequest $request)

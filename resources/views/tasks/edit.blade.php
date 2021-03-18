@@ -16,7 +16,13 @@
                     ])
                   
                 </form>
+                <div class="mt-3">
+                    <a href="/tasks">Back</a>
+                </div>
+                
             </div>
+
+         
         </div>
     </div>
 
